@@ -56,7 +56,7 @@ function App() {
 
   return (
     <ConfigProvider theme={theme}>
-      <div className="w-2/5 m-auto">
+      <div className="w-2/6 m-auto">
         {/* Editable */}
         <div className="flex justify-between my-4">
           <p className="text-base">Editable</p>

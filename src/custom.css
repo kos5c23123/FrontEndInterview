@@ -7,9 +7,6 @@
 }
 
 /* Switch for on state */
-.custom-switch.ant-switch.ant-switch-checked:hover {
-    background-color: #6b47ed;
-}
 
 .custom-switch.ant-switch.ant-switch-checked .ant-switch-handle::before {
     background-color: white;
@@ -52,10 +49,6 @@
 
 /* CheckBox Css */
 
-.ant-checkbox-wrapper .ant-checkbox-inner {
-    border-radius: 15px;
-}
-
 .ant-checkbox-wrapper .ant-checkbox-checked.ant-checkbox-disabled .ant-checkbox-inner {
     background-color: rgb(169, 169, 169);
     border-color: rgb(169, 169, 169);
@@ -63,16 +56,6 @@
 
 .ant-checkbox-wrapper .ant-checkbox-checked .ant-checkbox-inner::after {
     content: initial
-}
-
-.ant-checkbox-wrapper:not(.ant-checkbox-wrapper-disabled):hover .ant-checkbox-checked:not(.ant-checkbox-disabled) .ant-checkbox-inner {
-    border-color: #6b47ed;
-    background-color: #6b47ed;
-}
-
-
-.ant-checkbox-wrapper:not(.ant-checkbox-wrapper-disabled):hover .ant-checkbox-inner {
-    border-color: #6b47ed;
 }
 
 

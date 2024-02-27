@@ -1,14 +1,16 @@
 import "./App.css";
 import "./custom.css";
 
-import type { RadioChangeEvent, GetProp } from "antd";
+import type { GetProp, RadioChangeEvent } from "antd";
 import { useState } from "react";
 
-import { Radio, Space, Switch, Checkbox, Button } from "antd";
+import { Radio, Space, Switch, Checkbox, Button, ConfigProvider } from "antd";
 
 import { CheckboxValueType } from "antd/lib/checkbox/Group";
 
 import { data } from "./data";
+
+import { theme } from "./theme";
 
 function App() {
   const options = [
@@ -25,7 +27,7 @@ function App() {
 
   const [editable, setEditable] = useState<boolean>(true);
 
-  const [radio] = useState<boolean>(data.isProficient);
+  const [radio, setRadio] = useState<boolean>(data.isProficient);
 
   const [toolsUsedValue, setToolsUsedValue] =
     useState<CheckboxValueType[]>(toolsUsedOptions);
@@ -34,6 +36,10 @@ function App() {
     checkedValues
   ) => {
     setToolsUsedValue(checkedValues as CheckboxValueType[]);
+  };
+
+  const onRadioChange = (e: RadioChangeEvent) => {
+    setRadio(e.target.value);
   };
 
   const onProcessClicked = () => {
@@ -49,7 +55,7 @@ function App() {
   };
 
   return (
-    <>
+    <ConfigProvider theme={theme}>
       <div className="w-2/5 m-auto">
         {/* Editable */}
         <div className="flex justify-between my-4">
@@ -65,7 +71,11 @@ function App() {
           <p className="w-5/6 text-lg font-bold text-wrap">
             Are you proficient in ReactJS development?
           </p>
-          <Radio.Group value={radio} disabled={!editable}>
+          <Radio.Group
+            value={radio}
+            disabled={!editable}
+            onChange={onRadioChange}
+          >
             <Space direction="vertical">
               <Radio value={false}>No</Radio>
               <Radio value={true}>Yes</Radio>
@@ -97,7 +107,7 @@ function App() {
           Process
         </Button>
       </div>
-    </>
+    </ConfigProvider>
   );
 }
 

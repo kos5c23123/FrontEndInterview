@@ -1,38 +1,16 @@
-import React, { useState } from "react";
-
-import type { RadioChangeEvent } from "antd";
-import { Radio, Space, Switch, Checkbox, Button } from "antd";
-
-import type { GetProp } from "antd";
-
-import { CheckboxValueType } from "antd/lib/checkbox/Group";
-
 import "./App.css";
 import "./custom.css";
+
+import type { RadioChangeEvent, GetProp } from "antd";
+import { useState } from "react";
+
+import { Radio, Space, Switch, Checkbox, Button } from "antd";
+
+import { CheckboxValueType } from "antd/lib/checkbox/Group";
 
 import { data } from "./data";
 
 function App() {
-  const [editable, setEditable] = useState<boolean>(true);
-
-  const [radio, setRadio] = useState<boolean>(data.isProficient);
-
-  const [toolsUsedValue, setToolsUsedValue] = useState<CheckboxValueType[]>(
-    data.toolsUsed
-      .split(",")
-      .map((value) => parseInt(value, 10) as CheckboxValueType)
-  );
-
-  const onRadioChange = (e: RadioChangeEvent) => {
-    setRadio(e.target.value);
-  };
-
-  const onCheckBoxChange: GetProp<typeof Checkbox.Group, "onChange"> = (
-    checkedValues
-  ) => {
-    setToolsUsedValue(checkedValues as CheckboxValueType[]);
-  };
-
   const options = [
     { label: "Redux", value: 0 },
     { label: "Lodash", value: 1 },
@@ -41,12 +19,33 @@ function App() {
     { label: "Other", value: 4 },
   ];
 
+  const toolsUsedOptions = data.toolsUsed
+    .split(",")
+    .map((value) => parseInt(value, 10) as CheckboxValueType);
+
+  const [editable, setEditable] = useState<boolean>(true);
+
+  const [radio] = useState<boolean>(data.isProficient);
+
+  const [toolsUsedValue, setToolsUsedValue] =
+    useState<CheckboxValueType[]>(toolsUsedOptions);
+
+  const onCheckBoxChange: GetProp<typeof Checkbox.Group, "onChange"> = (
+    checkedValues
+  ) => {
+    setToolsUsedValue(checkedValues as CheckboxValueType[]);
+  };
+
   const onProcessClicked = () => {
-    const data = {
+    const updatedData = {
       isProficient: radio,
       toolsUsed: toolsUsedValue.join(","),
     };
-    console.log("Data:", data);
+    console.log("Data:", updatedData);
+  };
+
+  const buttonStyle = {
+    backgroundColor: editable ? "#6B47ED" : "#D4CCF7",
   };
 
   return (
@@ -66,11 +65,7 @@ function App() {
           <p className="w-5/6 text-lg font-bold text-wrap">
             Are you proficient in ReactJS development?
           </p>
-          <Radio.Group
-            onChange={onRadioChange}
-            value={radio}
-            disabled={!editable}
-          >
+          <Radio.Group value={radio} disabled={!editable}>
             <Space direction="vertical">
               <Radio value={false}>No</Radio>
               <Radio value={true}>Yes</Radio>
@@ -92,11 +87,15 @@ function App() {
           />
         </div>
         {/* Process button*/}
-        <div className="">
-          <Button className="font-semibold text-lg custom-button" style={{backgroundColor: editable ? "#6B47ED" : "#D4CCF7"}} disabled={!editable} onClick={onProcessClicked} shape="round">
-            Process
-          </Button>
-        </div>
+        <Button
+          className="font-semibold text-lg custom-button"
+          style={buttonStyle}
+          disabled={!editable}
+          onClick={onProcessClicked}
+          shape="round"
+        >
+          Process
+        </Button>
       </div>
     </>
   );

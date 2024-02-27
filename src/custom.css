@@ -1,0 +1,123 @@
+/* Switch CSS */
+
+.custom-switch .ant-switch-handle {
+    width: 13px;
+    height: 13px;
+    margin-left: 2px;
+}
+
+/* Switch for on state */
+.custom-switch.ant-switch.ant-switch-checked:hover {
+    background-color: rgb(107, 71, 237);
+}
+
+.custom-switch.ant-switch.ant-switch-checked {
+    background-color: rgb(107, 71, 237);
+}
+
+.custom-switch.ant-switch.ant-switch-checked .ant-switch-handle::before {
+    background-color: white;
+}
+
+.custom-switch.ant-switch.ant-switch-checked {
+    border: 2px solid rgb(107, 71, 237);
+}
+
+
+/* Switch for off state */
+.custom-switch .ant-switch-inner::before {
+    background-color: white;
+}
+
+.custom-switch.ant-switch {
+    border: 2px solid #D4CCF7;
+}
+
+
+.custom-switch .ant-switch-handle::before {
+    background-color: rgb(107, 71, 237);
+}
+
+/* End of Switch CSS */
+
+/* Radio CSS */
+
+.ant-radio-wrapper .ant-radio-checked .ant-radio-inner {
+    background-color: rgb(107, 71, 237);
+    border-color: rgb(107, 71, 237);
+}
+
+
+.ant-radio-wrapper .ant-radio-checked.ant-radio-disabled .ant-radio-inner {
+    background-color: rgb(169, 169, 169);
+    border-color: rgb(169, 169, 169);
+}
+
+.ant-radio-wrapper .ant-radio-checked .ant-radio-inner::after {
+    content: initial
+}
+
+.ant-radio-wrapper .ant-radio-checked .ant-radio-inner:hover {
+    border-color: rgb(107, 71, 237);
+}
+
+.ant-radio-wrapper:hover .ant-radio-inner {
+    border-color: rgb(107, 71, 237);
+}
+
+/* End of Radio Css */
+
+
+/* CheckBox Css */
+
+.ant-checkbox-wrapper .ant-checkbox-inner {
+    border-radius: 15px;
+}
+
+.ant-checkbox-wrapper .ant-checkbox-checked .ant-checkbox-inner {
+    background-color: rgb(107, 71, 237);
+    border-color: rgb(107, 71, 237);
+}
+
+.ant-checkbox-wrapper .ant-checkbox-checked.ant-checkbox-disabled .ant-checkbox-inner {
+    background-color: rgb(169, 169, 169);
+    border-color: rgb(169, 169, 169);
+}
+
+.ant-checkbox-wrapper .ant-checkbox-checked .ant-checkbox-inner::after {
+    content: initial
+}
+
+.ant-checkbox-wrapper:not(.ant-checkbox-wrapper-disabled):hover .ant-checkbox-checked:not(.ant-checkbox-disabled) .ant-checkbox-inner {
+    border-color: rgb(107, 71, 237);
+    background-color: rgb(107, 71, 237);
+}
+
+
+.ant-checkbox-wrapper:not(.ant-checkbox-wrapper-disabled):hover .ant-checkbox-inner {
+    border-color: rgb(107, 71, 237);
+}
+
+
+/* End of CheckBox Css */
+
+/* Button Css */
+
+.custom-button {
+    width: 200px;
+    height: 60px;
+}
+
+.ant-btn.ant-btn-round.ant-btn {
+    /* background-color: rgb(107, 71, 237); */
+    color: white;
+}
+
+
+.ant-btn.ant-btn-round.ant-btn:hover {
+    color: white;
+    border-color: rgb(107, 71, 237);
+}
+
+
+/* End of Button Css */

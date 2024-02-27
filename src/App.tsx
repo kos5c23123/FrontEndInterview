@@ -13,6 +13,7 @@ import { data } from "./data";
 import { theme } from "./theme";
 
 function App() {
+  // Options for the checkbox group
   const options = [
     { label: "Redux", value: 0 },
     { label: "Lodash", value: 1 },
@@ -21,6 +22,7 @@ function App() {
     { label: "Other", value: 4 },
   ];
 
+  // Parsing tools used options from data and initializing state
   const toolsUsedOptions = data.toolsUsed
     .split(",")
     .map((value) => parseInt(value, 10) as CheckboxValueType);
@@ -32,15 +34,18 @@ function App() {
   const [toolsUsedValue, setToolsUsedValue] =
     useState<CheckboxValueType[]>(toolsUsedOptions);
 
+  // Handler for checkbox group change
   const onCheckBoxChange: GetProp<typeof Checkbox.Group, "onChange"> = (
     checkedValues
   ) => {
     setToolsUsedValue(checkedValues as CheckboxValueType[]);
   };
 
+  // Handler for radio button change
   const onRadioChange = (e: RadioChangeEvent) => {
     setRadio(e.target.value);
   };
+
 
   const onProcessClicked = () => {
     const updatedData = {
